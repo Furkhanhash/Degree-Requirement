@@ -191,7 +191,10 @@ calculateCoreCoursesSatisfied(): void {
 
 }
 
-
+deleteCourse(index: number): void {
+  this.courseService.deleteCourse(index);
+  this.calculateCoreCoursesSatisfied(); // Recalculate core courses
+}
 
 
 calculateCoreCoursesLeft(): void {

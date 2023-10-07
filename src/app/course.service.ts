@@ -15,5 +15,12 @@ export class CourseService {
   addCourse(course: Course): void {
     this.courses.push(course);
   }
-  
+
+  deleteCourse(courseId: number): void {
+    const index = this.courses.findIndex(course => course.id === courseId);
+    if (index !== -1) {
+      this.courses.splice(index, 1);
+    }
+  }
+
 }

@@ -30,6 +30,7 @@
           <th>ID</th>
           <th>Couse Name</th>
           <th>Code</th>
+          <th>Action</th>
           <!-- <th>Description</th> -->
         </tr>
       </thead>
@@ -38,6 +39,10 @@
           <td>{{ course.id }}</td>
           <td>{{ course.name }}</td>
           <td>{{ course.code }}</td>
+          <td>
+            <!-- Add a button to delete the course -->
+            <button class="btn btn-danger" (click)="deleteCourse(course.id)">Delete</button>
+          </td>
           <!-- <td>{{ course.description }}</td> -->
         </tr>
       </tbody>
