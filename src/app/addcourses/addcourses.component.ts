@@ -116,6 +116,17 @@ ngOnInit(): void {
 }
 
 addCourse(): void {
+
+  const isDuplicate = this.courses.some(course => 
+    course.name === this.newCourse.name && course.code === this.newCourse.code
+  );
+
+  if (isDuplicate) {
+    // Handle the case where a duplicate course is found
+    alert('This course already exists.');
+  } else {
+
+
   const newId = this.courses.length + 1;
   this.newCourse.id = newId;
 
@@ -139,9 +150,15 @@ if (matchingCourse) {
   this.calculateCoreCoursesSatisfied();
     this.calculateCoreCoursesLeft();
 }
+}
+
+
+
 CheckRequirement():void{
   console.log('Data ',this.courses);
 }
+
+
 
 calculateCoreCoursesSatisfied(): void {
   this.coreCoursesSatisfied = this.coreCourses.reduce((count, coreCourse) => {
