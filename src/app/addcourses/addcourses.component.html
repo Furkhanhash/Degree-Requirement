@@ -52,7 +52,7 @@
   </div>
   <div *ngIf="coreCoursesLeft > 0 || csAdvancedCourses.length < 2; else noCoreCourses">
     <div class="text-center"><p>{{ coreCoursesLeft }} core courses left to reach the minimum of 5.</p>
-      <p>{{ csAdvancedCourses.length >= 2 ? 'Requirement for advanced courses met.' : 'At least four courses must be chosen from the advanced courses. You need at least 2 CS advanced courses.' }}</p>
+      <p>{{ csAdvancedCourses.length >= 2 && advancedCourseflag == 1? 'Requirement for advanced courses met.' : 'At least four courses must be chosen from the advanced courses. You need at least 2 CS advanced courses.' }}</p>
     </div>
       <!-- <p>{{ advancedCoursesLeft }} advanced courses left to meet the requirement.</p> -->
   </div>

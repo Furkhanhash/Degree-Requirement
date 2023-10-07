@@ -106,6 +106,9 @@ export class AddcoursesComponent {
   coreCoursesSatisfied = 0;
   coreCoursesLeft = 0;
   csAdvancedCourses:Course[]=[];
+  advancedCourseflag = 0;
+  // advancedCourseCount = 0;
+  //  areas = new Set();
 
 constructor(private courseService: CourseService){}
 
@@ -179,6 +182,7 @@ calculateCoreCoursesSatisfied(): void {
   
   const areas = new Set();
   let advancedCourseCount = 0;
+  
 
   this.courses.forEach(course => {
     if (courseIsAdvanced(course, this.advanceCourses)) {
@@ -188,6 +192,7 @@ calculateCoreCoursesSatisfied(): void {
   });
   if (advancedCourseCount >= 4 && areas.size >= 2 && this.csAdvancedCourses.length >= 2) {
     console.log("Condition met: At least 4 advanced courses from 2 different areas.");
+    this.advancedCourseflag = 1;
   } else {
     console.log("Condition not met: Not enough advanced courses or areas.");
   }
