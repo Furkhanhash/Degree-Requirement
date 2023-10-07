@@ -102,20 +102,17 @@ export class AddcoursesComponent {
   
   
 
-  requiredCoreCourses = 5;
   coreCoursesSatisfied = 0;
-  coreCoursesLeft = 0;
   csAdvancedCourses:Course[]=[];
   advancedCourseflag = 0;
-  // advancedCourseCount = 0;
-  //  areas = new Set();
+
 
 constructor(private courseService: CourseService){}
 
 ngOnInit(): void {
   this.courses = this.courseService.getCourses();
   this.calculateCoreCoursesSatisfied();
-    this.calculateCoreCoursesLeft();
+   
 }
 
 addCourse(): void {
@@ -151,28 +148,24 @@ if (matchingCourse) {
   this.courseService.addCourse(this.newCourse);
   this.newCourse = new Course(0,'', '',''); // Reset the form
   this.calculateCoreCoursesSatisfied();
-    this.calculateCoreCoursesLeft();
+
 }
 }
 
-
-
-CheckRequirement():void{
-  console.log('Data ',this.courses);
-}
 
 
 
 calculateCoreCoursesSatisfied(): void {
-  this.coreCoursesSatisfied = this.coreCourses.reduce((count, coreCourse) => {
-    const foundCourse = this.courses.find(course => {
-      return (
-        course["name"] === coreCourse["course code"] &&
-        course["code"] === coreCourse["number"]
-      );
-    });
-    return foundCourse ? count + 1 : count;
-  }, 0);
+ 
+
+  this.coreCoursesSatisfied = 0; // Reset the count
+
+  this.courses.forEach(course => {
+    // Check if the course is a core course
+    if (this.coreCourses.some(coreCourse => coreCourse["course code"] === course["name"] && coreCourse["number"] === course["code"])) {
+      this.coreCoursesSatisfied++;
+    }
+  });
 
 
    this.csAdvancedCourses = this.courses.filter(course => {
@@ -197,9 +190,7 @@ calculateCoreCoursesSatisfied(): void {
     console.log("Condition not met: Not enough advanced courses or areas.");
   }
 
-  // Calculate core courses left
-  this.coreCoursesLeft = Math.max(this.requiredCoreCourses - this.coreCoursesSatisfied, 0);
-
+ 
 
 
   function courseIsAdvanced(course: Course, advanceCourses: any[]): boolean {
@@ -219,8 +210,6 @@ deleteCourse(index: number): void {
 }
 
 
-calculateCoreCoursesLeft(): void {
-  this.coreCoursesLeft = Math.max(this.requiredCoreCourses - this.coreCoursesSatisfied, 0);
-}
+
 
 }
