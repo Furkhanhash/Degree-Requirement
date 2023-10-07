@@ -1,0 +1,57 @@
+<div class="container mt-5">
+    <h2>Add Course</h2>
+    <form (submit)="addCourse()">
+      <div class="form-group">
+        <label for="courseName">Course Code:</label>
+        <select class="form-control" id="courseName" [(ngModel)]="newCourse.name" [ngModelOptions]="{ standalone: true }" required>
+          <option value="CS">CS</option>
+          <option value="SWE">SWE</option>
+          <option value="INFS">INFS</option>
+          <option value="ISA">ISA</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="courseCode">Course Number:</label>
+        <input type="text" class="form-control" id="courseCode" [(ngModel)]="newCourse.code" [ngModelOptions]="{ standalone: true }" required>
+      </div>
+      <br>
+      <!-- <div class="form-group">
+        <label for="courseDescription">Course Description:</label>
+        <textarea class="form-control" id="courseDescription" [(ngModel)]="newCourse.description" rows="3" required></textarea>
+      </div> -->
+      <button type="submit" class="btn btn-primary">Add </button>
+    </form>
+  
+    <h2 class="mt-4">Course List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Couse Name</th>
+          <th>Code</th>
+          <!-- <th>Description</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of courses">
+          <td>{{ course.id }}</td>
+          <td>{{ course.name }}</td>
+          <td>{{ course.code }}</td>
+          <!-- <td>{{ course.description }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center">
+    <button type="button" class="btn btn-primary" (click)="calculateCoreCoursesSatisfied()">Check Requirement</button></div>
+  </div>
+  <div *ngIf="coreCoursesLeft > 0 || csAdvancedCourses.length < 2; else noCoreCourses">
+    <div class="text-center"><p>{{ coreCoursesLeft }} core courses left to reach the minimum of 5.</p>
+      <p>{{ csAdvancedCourses.length >= 2 ? 'Requirement for advanced courses met.' : 'At least four courses must be chosen from the advanced courses. You need at least 2 CS advanced courses.' }}</p>
+    </div>
+      <!-- <p>{{ advancedCoursesLeft }} advanced courses left to meet the requirement.</p> -->
+  </div>
+  <ng-template #noCoreCourses>
+    <div class="text-center"><p>You have met the minimum requirement of 5 core courses.</p></div> 
+  </ng-template>
+  
