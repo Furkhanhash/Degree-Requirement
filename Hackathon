@@ -1,0 +1,20 @@
+Inspiration
+We were looking for a fun and useful web application project to work on in a short amount of time that can be useful. We thought being a student what issues we face.
+
+What it does
+It is a CS degree requirement check application which will be used to verify whether the courses took by students satisfy the CS degree requirement. We thought of implementing this across all majors later on and many more features.
+
+How we built it
+We used Angular 16 to build our application. For styling we used bootstrap framework. Certainly it was not that difficult but got a bunch of errors as always. We learnt a lot.
+
+Challenges we ran into
+Our primary challenges involved developing the application solely on the frontend without a database, necessitating the use of local storage for data management. We also concentrated on improving the user interface, conducted user testing, and created a dummy login system for testing purpose. 
+
+Accomplishments that we're proud of
+We're thrilled to present our groundbreaking career path application that allows students to add their graduate courses and, track their progress towards completing their degree! It's a real game-changer, considering we live in an era where walking to the registrar's office seems like a heroic quest. But hey, we've done it, and we're super proud of simplifying this epic journey for students and making life a little less adventurous for the admin staff – no more treasure hunts for paper records! 
+
+What we learned
+It was a fun ride. Brainstorming ideas and selecting the one which can be implemented in less time and maybe a chance to win something xd. We leanrt concepts like routing, service and many more related to angular and UI using bootstrap. 
+
+What's next for Degree Requirement
+Across all majors with interesting feature such as where user can refer degree courses what other student took. Implement a more user friendly interface. We hope all students can make use of it. 
