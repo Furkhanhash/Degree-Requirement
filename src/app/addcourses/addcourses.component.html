@@ -53,7 +53,7 @@
 </div>
 <div *ngIf="coreCoursesSatisfied < 5 || advancedCourseflag < 1; else noCoreCourses">
   <div class="text-center">
-    <p>{{ coreCoursesSatisfied >= 5? 'Requirement for core courses met.':'At least '+coreCoursesSatisfiedC +' core courses should be chosen'}} </p>
+    <p>{{ coreCoursesSatisfied >= 5? 'Requirement for core courses met.':'At least 5 core courses should be chosen'}} </p>
     <p>{{ csAdvancedCourses.length >= 2 && advancedCourseflag == 1? 'Requirement for advanced courses met.' : 'At least four courses from the advanced courses which must come from at least two different areas, two of which must be designated as CS' }}</p>
   </div>
     <!-- <p>{{ advancedCoursesLeft }} advanced courses left to meet the requirement.</p> -->
