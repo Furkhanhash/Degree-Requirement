@@ -23,5 +23,10 @@ this.router.navigate(['./addcourses']);
  }
 
 }
+
+showAlert() {
+  alert('Registration is currently unavailable. Please try again later.');
+}
+
 }
 

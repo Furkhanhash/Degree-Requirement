@@ -103,8 +103,10 @@ export class AddcoursesComponent {
   
 
   coreCoursesSatisfied = 0;
+  coreCoursesSatisfiedC=5;
   csAdvancedCourses:Course[]=[];
   advancedCourseflag = 0;
+  
 
 
 constructor(private courseService: CourseService){}
@@ -165,6 +167,7 @@ calculateCoreCoursesSatisfied(): void {
     // Check if the course is a core course
     if (this.coreCourses.some(coreCourse => coreCourse["course code"] === course["name"] && coreCourse["number"] === course["code"])) {
       this.coreCoursesSatisfied++;
+      this.coreCoursesSatisfiedC--;
       console.log("Condtion core");
       console.log( this.coreCoursesSatisfied);
     }

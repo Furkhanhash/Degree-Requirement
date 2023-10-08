@@ -53,11 +53,17 @@
 </div>
 <div *ngIf="coreCoursesSatisfied < 5 || advancedCourseflag < 1; else noCoreCourses">
   <div class="text-center">
-    <p>{{ coreCoursesSatisfied >= 5? 'Requirement for core courses met.':'At least 5 core courses should be chosen'}} </p>
-    <p>{{ csAdvancedCourses.length >= 2 && advancedCourseflag == 1? 'Requirement for advanced courses met.' : 'At least four courses must be chosen from the advanced courses. You need at least 2 CS advanced courses.' }}</p>
+    <p>{{ coreCoursesSatisfied >= 5? 'Requirement for core courses met.':'At least '+coreCoursesSatisfiedC +' core courses should be chosen'}} </p>
+    <p>{{ csAdvancedCourses.length >= 2 && advancedCourseflag == 1? 'Requirement for advanced courses met.' : 'At least four courses from the advanced courses which must come from at least two different areas, two of which must be designated as CS' }}</p>
   </div>
     <!-- <p>{{ advancedCoursesLeft }} advanced courses left to meet the requirement.</p> -->
 </div>
 <ng-template #noCoreCourses>
-  <div class="text-center"><p>You have met the minimum requirement for Master in CS degree{{coreCoursesSatisfied}}.</p></div> 
+  <div class="text-center">
+    <div class="alert alert-info">
+      <strong>Status:</strong> You have met the minimum requirement for a Master in CS degree. See bottom of page for more info.
+    </div>
+  </div>
+  
+  <div class="text-center"><p><strong>Note: Student must select one elective/project/thesis to complete the requirement.</strong></p></div> 
 </ng-template>
