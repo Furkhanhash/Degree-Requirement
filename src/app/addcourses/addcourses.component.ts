@@ -159,11 +159,14 @@ calculateCoreCoursesSatisfied(): void {
  
 
   this.coreCoursesSatisfied = 0; // Reset the count
+  this.advancedCourseflag = 0;
 
   this.courses.forEach(course => {
     // Check if the course is a core course
     if (this.coreCourses.some(coreCourse => coreCourse["course code"] === course["name"] && coreCourse["number"] === course["code"])) {
       this.coreCoursesSatisfied++;
+      console.log("Condtion core");
+      console.log( this.coreCoursesSatisfied);
     }
   });
 
